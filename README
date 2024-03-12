@@ -1,4 +1,4 @@
-Deliverables 3pts
+Data Sourcing 
 
 Link of all data sources:
 https://data.cityofnewyork.us/Housing-Development/Bedbug-Reporting/wz6d-d3jb/about_data 
@@ -21,3 +21,13 @@ DONE
 You script should be stored in a git repository that is accessible to all members of your team and the professor. 
 DONE
 
+Storage
+Storage of choice: MongoDB
+
+Data Stored in an orderly fashion in the storage.
+
+
+Scripts updated from the first deliverables. You will need to update those scripts to store to data into their specific storage.
+
+
+Git repository updated.
