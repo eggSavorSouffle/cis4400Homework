@@ -1,12 +1,22 @@
 Deliverables 3pts
 
-Link of all data sources: https://data.cityofnewyork.us/Housing-Development/Bedbug-Reporting/wz6d-d3jb/about_data 
+Link of all data sources:
+https://data.cityofnewyork.us/Housing-Development/Bedbug-Reporting/wz6d-d3jb/about_data 
+
 Explanation of the data (where does it come from):
 The data comes from property owners where they ask either tenets or dwelling unit owners about any infestation history from the unit they live in. 
-Link that shows the data dictionary (excel, google sheets): https://docs.google.com/spreadsheets/d/12wFghZGdv9o87J3iLkzxNoAF4qLI5b85x-efySBT1o8/edit?usp=sharing 
+
+Link that shows the data dictionary (excel, google sheets):
+https://docs.google.com/spreadsheets/d/12wFghZGdv9o87J3iLkzxNoAF4qLI5b85x-efySBT1o8/edit?usp=sharing 
+
 Github/AzureDevops/Jira account created
+DONE
+
 Scripts that gather these data
+
 Git Repository Created
+DONE
+
 You script should be stored in a git repository that is accessible to all members of your team and the professor. 
 
 
