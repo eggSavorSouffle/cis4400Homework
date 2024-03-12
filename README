@@ -1,4 +1,4 @@
-Data Sourcing 
+**Data Sourcing**
 
 Link of all data sources:
 https://data.cityofnewyork.us/Housing-Development/Bedbug-Reporting/wz6d-d3jb/about_data 
@@ -22,7 +22,8 @@ You script should be stored in a git repository that is accessible to all member
 DONE
 
 --------------------------------------------------------
-Storage
+**Storage**
+
 Storage of choice: 
 MongoDB
 
