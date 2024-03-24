@@ -17,9 +17,7 @@ except Exception as e:
 
 
 #####
-
-mongoClient = MongoClient()
-db = mongoClient['data_storage']
+db = client['data_storage']
 collection = db['bedBugData']
 header = ['registration_id', 'building_id','borough',
 'house_number','street_name', 'postcode',
@@ -38,3 +36,4 @@ for x in reader:
         row[field] = x[field]
     print(row)
     collection.insert_one(row)
+
