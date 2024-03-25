@@ -37,3 +37,4 @@ for x in reader:
     print(row)
     collection.insert_one(row)
 
+#edit code to map proper data type per field
