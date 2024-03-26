@@ -1,6 +1,7 @@
 import csv
 from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
+from datetime import datetime
 
 # Replace the placeholder with your Atlas connection string
 uri = "mongodb+srv://xavier-souffront:0U5jY8WuzhIPOMSM@gcpcluster.rwcznai.mongodb.net/"
@@ -37,4 +38,3 @@ for x in reader:
     print(row)
     collection.insert_one(row)
 
-#edit code to map proper data type per field
