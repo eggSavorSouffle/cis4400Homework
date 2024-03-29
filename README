@@ -43,15 +43,15 @@ Data Model documented showing the fact table and the dimension table
 DONE
 
 Scripts that create the Data Warehouse 
--> Use DB Schema, deploy then schema (make sure all tables are checked) and export script 
+DONE
 
 Scripts from previous steps updated
-
+DONE
 
 Data Warehouse accessible to everyone in the team and can’t be accessed through a client (DataGrip, DbSchema, SqlDBM)
-
+DONE
 
 Git Repository Updated
-
+DONE
 
 
