@@ -1,40 +1,52 @@
-from pymongo.mongo_client import MongoClient
-from pymongo.server_api import ServerApi
-from datetime import datetime
+from google.cloud import bigquery
+from google.cloud.exceptions import NotFound
+from google.oauth2 import service_account
 
-# Replace the placeholder with your Atlas connection string
-uri = "mongodb+srv://xavier-souffront:0U5jY8WuzhIPOMSM@gcpcluster.rwcznai.mongodb.net/"
+# Create BigQuery client
+credentials = service_account.Credentials.from_service_account_file(r"C:\Users\16466\Desktop\cis4400Homework\scripts\Private Key\modified-shape-418121-5e39251205f6.json")
+client = bigquery.Client(credentials=credentials)
+project_id = "modified-shape-418121"
+dataset_id = "BedBugDataset"
+table_name = "BedBugTable"
 
-# Set the Stable API version when creating a new client
-client = MongoClient(uri, server_api=ServerApi('1'))
-db = client['data_storage']
-collection = db['bedBugData']                    
+# Extract data from the existing table
+query = f"SELECT * FROM `{project_id}.{dataset_id}.{table_name}`"
+df = client.query(query).to_dataframe()
 
-# Update data types for specified columns
-update_columns = {
-    'of_dwelling_units': int,
-    'infested_dwelling_unit_count': int,
-    'eradicated_unit_count': int,
-    're_infested_dwelling_unit': int,
-    'latitude': float,
-    'longitude': float,
-    'filing_date': lambda x: datetime.strptime(x, '%Y-%m-%dT%H:%M:%S.%f'),
-    'filing_period_start_date': lambda x: datetime.strptime(x, '%Y-%m-%dT%H:%M:%S.%f'),
-    'filling_period_end_date': lambda x: datetime.strptime(x, '%Y-%m-%dT%H:%M:%S.%f')
-}
+# Convert columns to strings
+for column in df.columns:
+    try:
+        df[column] = df[column].astype(str)
+    except ValueError:
+        print(f"Error converting column '{column}' to string. Some values may not be convertible.")
 
-for column, data_type in update_columns.items():
-    # Iterate over documents and update each one
-    for document in collection.find({column: {"$exists": True}}):
-        value = document[column]
-        if isinstance(value, str):
-            new_value = data_type(value)
-            collection.update_one({"_id": document["_id"]}, {"$set": {column: new_value}})
-        else:
-            print(f"Skipping update for {column} for document with _id {document['_id']}: Value is not a string")
+# Get the schema of existing table
+existing_table_ref = client.dataset(dataset_id).table(table_name)
+existing_table = client.get_table(existing_table_ref)
 
-# Confirm the updates
-updated_docs = collection.find({}, {column: 1 for column in update_columns.keys()})
+# Create a new schema with the same structure 
+new_schema = []
+for field in existing_table.schema:
+    if field.name in ["building_id", "registration_id", "postcode", "community_board", "city_council_district", "census_tract_2010", "bin", "bbl"]:
+        new_schema.append(bigquery.SchemaField(field.name, "STRING"))
+    else:
+        new_schema.append(field)
 
-for doc in updated_docs:
-    print(doc)
+# Create a new table with the updated schema
+new_table_ref = client.dataset(dataset_id).table(f"{table_name}_updated")
+new_table = bigquery.Table(new_table_ref, schema=new_schema)
+
+# Delete the existing table if it exists
+try:
+    client.delete_table(new_table_ref)
+    print(f"Existing table {dataset_id}.{table_name}_updated deleted successfully.")
+except NotFound:
+    print(f"Table {dataset_id}.{table_name}_updated does not exist. Skipping deletion.")
+
+# Create the new table with the updated schema
+client.create_table(new_table)
+
+# Load data from the DataFrame into the new table
+client.load_table_from_dataframe(df, new_table_ref)
+
+print(f"Data successfully migrated to a new table with updated schema.")
