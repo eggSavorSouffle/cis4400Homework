@@ -25,10 +25,10 @@ DONE
 **Storage**
 
 Storage of choice: 
-MongoDB-> Convert to gcloud
+Google Cloud
 
 Data Stored in an orderly fashion in the storage.
-DONE->
+DONE
 
 Scripts updated from the first deliverables. You will need to update those scripts to store to data into their specific storage.
 DONE
