@@ -25,10 +25,10 @@ DONE
 **Storage**
 
 Storage of choice: 
-MongoDB
+MongoDB-> Convert to gcloud
 
 Data Stored in an orderly fashion in the storage.
-DONE
+DONE->
 
 Scripts updated from the first deliverables. You will need to update those scripts to store to data into their specific storage.
 DONE
@@ -43,7 +43,7 @@ Data Model documented showing the fact table and the dimension table
 DONE
 
 Scripts that create the Data Warehouse 
-
+-> Use DB Schema, deploy then schema (make sure all tables are checked) and export script 
 
 Scripts from previous steps updated
 
