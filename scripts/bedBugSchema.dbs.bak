@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="BedBugModel" id="LogicalDesign-26cf" database="LogicalDesign" >
+	<schema name="INSTANCE" catalogname="BedBugModel" >
+		<table name="dim_Location" prior="dim_L" >
+			<column name="locationID" type="TEXT" jt="-1" mandatory="y" />
+			<column name="latitude" type="DOUBLE" jt="8" />
+			<column name="longitude" type="DOUBLE" jt="8" />
+			<column name="borough" type="TEXT" jt="-1" />
+			<column name="postcode" type="TEXT" jt="-1" />
+			<column name="bbl" type="TEXT" jt="-1" />
+			<column name="nta" type="TEXT" jt="-1" />
+			<column name="bin" type="TEXT" jt="-1" />
+			<column name="avg_infestion_by_borough" type="DOUBLE" jt="8" />
+			<index name="pk_dim_Location" unique="PRIMARY_KEY" >
+				<column name="locationID" />
+			</index>
+		</table>
+		<table name="dim_Unit" prior="Unit" >
+			<column name="unitID" type="TEXT" jt="-1" mandatory="y" />
+			<column name="of_dwelling_units" type="INT" jt="4" />
+			<column name="infested_dwelling_unit_count" type="INT" jt="4" />
+			<column name="eradicated_unit_count" type="INT" jt="4" />
+			<column name="re-infested_dwelling_unit_count" type="INT" jt="4" />
+			<column name="avg_eradication" type="DOUBLE" jt="8" />
+			<index name="pk_dim_Unit" unique="PRIMARY_KEY" >
+				<column name="unitID" />
+			</index>
+		</table>
+		<table name="dim_report" prior="Entity" >
+			<column name="reportID" type="TEXT" jt="-1" mandatory="y" />
+			<column name="filling_date" type="DATE" jt="91" />
+			<column name="filling_period_start_date" type="DATE" jt="91" />
+			<column name="filling_period_end_date" type="DATE" jt="91" />
+			<column name="length_of_period" type="DATE" jt="91" />
+			<index name="pk_dim_report" unique="PRIMARY_KEY" >
+				<column name="reportID" />
+			</index>
+		</table>
+		<table name="facts_BB" prior="facts" >
+			<column name="bbID" type="TEXT" jt="-1" mandatory="y" />
+			<column name="of_dwelling_units" type="INT" jt="4" />
+			<column name="infested_dwelling_unit_count" type="INT" jt="4" />
+			<column name="eradicated_unit_count" type="INT" jt="4" />
+			<column name="re-infested_dwelling_unit_count" type="INT" jt="4" />
+			<column name="filling_date" type="DATE" jt="91" />
+			<column name="filling_period_start_date" type="DATE" jt="91" />
+			<column name="filling_period_end_date" type="DATE" jt="91" />
+			<column name="latitude" type="DOUBLE" jt="8" />
+			<column name="longitude" type="DOUBLE" jt="8" />
+			<column name="length_of_period" type="DOUBLE" jt="8" />
+			<column name="avg_infestion_by_borough" type="DOUBLE" jt="8" />
+			<column name="avg_eradication" type="DOUBLE" jt="8" />
+			<column name="unitID" type="TEXT" jt="-1" mandatory="y" />
+			<column name="locationID" type="TEXT" jt="-1" mandatory="y" />
+			<column name="reportID" type="TEXT" jt="-1" mandatory="y" />
+			<index name="pk_facts_BB" unique="PRIMARY_KEY" >
+				<column name="bbID" />
+				<column name="unitID" />
+				<column name="locationID" />
+				<column name="reportID" />
+			</index>
+			<fk name="fk_facts_BB_dim_Unit" virtual="y" to_schema="BedBugModel.INSTANCE" to_table="dim_Unit" type="Identifying" mandatory="y" cardinality="ZeroMore" range_from="0" range_to="0" >
+				<fk_column name="unitID" pk="unitID" />
+			</fk>
+			<fk name="fk_facts_BB_dim_Location" virtual="y" to_schema="BedBugModel.INSTANCE" to_table="dim_Location" type="Identifying" mandatory="y" cardinality="ZeroMore" range_from="0" range_to="0" >
+				<fk_column name="locationID" pk="locationID" />
+			</fk>
+			<fk name="fk_facts_BB_dim_report" virtual="y" to_schema="BedBugModel.INSTANCE" to_table="dim_report" type="Identifying" mandatory="y" cardinality="ZeroMore" range_from="0" range_to="0" >
+				<fk_column name="reportID" pk="reportID" />
+			</fk>
+		</table>
+	</schema>
+	<layout name="Default Layout" id="Layout-1c3e" show_relation="columns" >
+		<entity schema="BedBugModel.INSTANCE" name="dim_Location" color="C1D8EE" x="640" y="48" />
+		<entity schema="BedBugModel.INSTANCE" name="dim_Unit" color="C1D8EE" x="48" y="64" />
+		<entity schema="BedBugModel.INSTANCE" name="dim_report" color="C1D8EE" x="64" y="432" />
+		<entity schema="BedBugModel.INSTANCE" name="facts_BB" color="C1D8EE" x="416" y="272" />
+	</layout>
+</project>
