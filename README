@@ -54,4 +54,46 @@ DONE
 Git Repository Updated
 DONE
 
+--------------------------------------------------------
+**Transformation**
+Scripts from previous steps updated
+
+
+Data Mapping Created & Data dictionary updated
+
+
+Data transformation project created on the cloud in case you are using Option One
+
+
+ETL fully created to push the data to DataWarehouse
+
+
+Git Repository Updated
+
+
+**Modeling**
+Data Model documented showing the fact table and the dimension table
+
+Scripts that create the Data Warehouse 
+
+Scripts from previous steps updated
+
+Data Warehouse Created in AWS with Redshift
+
+Data Inserted into the Data Warehouse
+
+Data Warehouse accessible to everyone in the team and can’t be accessed through a client (DBeaver, DataGrip)
+
+Git Repository Updated
+
+
+**Serving Data**
+Git Repository Updated
+
+A link using AWS Quick Sight that connects to the Data Warehouse and shows the data
+
+An API using python script that will generate data in a csv format which can be used by Data Analyst
+
+A PowerBI or a Tableau Link 
+
 
