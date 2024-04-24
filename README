@@ -1,3 +1,4 @@
+(HW 1)--------------------------------------------------------
 **Data Sourcing**
 
 Link of all data sources:
@@ -54,7 +55,7 @@ DONE
 Git Repository Updated
 DONE
 
---------------------------------------------------------
+(HW 2)--------------------------------------------------------
 **Transformation**
 Scripts from previous steps updated
 
@@ -70,7 +71,7 @@ ETL fully created to push the data to DataWarehouse
 
 Git Repository Updated
 
-
+--------------------------------------------------------
 **Modeling**
 Data Model documented showing the fact table and the dimension table
 
@@ -86,7 +87,7 @@ Data Warehouse accessible to everyone in the team and can’t be accessed throug
 
 Git Repository Updated
 
-
+--------------------------------------------------------
 **Serving Data**
 Git Repository Updated
 
