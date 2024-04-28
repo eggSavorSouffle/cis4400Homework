@@ -1,4 +1,5 @@
-(HW 1)--------------------------------------------------------
+(HW 1 & HW 2)
+--------------------------------------------------------
 **Data Sourcing**
 
 Link of all data sources:
@@ -16,17 +17,19 @@ I created a script to briefly analyze what kind of data I was dealing with, what
 **Storage**
 
 Google Cloud Storage was choosen for my data, due to my familiarity with it. I programatically uploaded my bed bug data. The process consisted of uploading to a blob, creating a dataset, creating a data table with my blob data. Upon inspection, I took note that the data types were off so I had to create another python script to update the data types. 
+
 --------------------------------------------------------
 **Modeling**
 
 Using DbSchema I was able to create a logical model consisting my different dimensions and fact table. 
 
-(HW 2)--------------------------------------------------------
+--------------------------------------------------------
 **Transformation**
 Transformation happened via Python, cleaning columns and adding a few columns I thought would be helpful in providing unqiue insights such as seasons along with the original business problem
 
 --------------------------------------------------------
 **Modeling**
+
 --------------------------------------------------------
 **Serving Data**
 My data was transformed and I exported as a CSV file to my data warehouse (GCS). I used Power BI, for the first time, to serve the data and get interesting insights. I even added an extra graph.
