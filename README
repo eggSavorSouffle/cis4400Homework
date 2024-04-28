@@ -10,102 +10,26 @@ The data comes from property owners where they ask either tenets or dwelling uni
 Link that shows the data dictionary (excel, google sheets):
 https://docs.google.com/spreadsheets/d/12wFghZGdv9o87J3iLkzxNoAF4qLI5b85x-efySBT1o8/edit?usp=sharing 
 
-Github/AzureDevops/Jira account created
-DONE
-
-Scripts that gather these data
-DONE
-
-Git Repository Created
-DONE
-
-You script should be stored in a git repository that is accessible to all members of your team and the professor. 
-DONE
+I created a script to briefly analyze what kind of data I was dealing with, what kind of tranformations I could do, and business problems I could solve.
 
 --------------------------------------------------------
 **Storage**
 
-Storage of choice: 
-Google Cloud
-
-Data Stored in an orderly fashion in the storage.
-DONE
-
-Scripts updated from the first deliverables. You will need to update those scripts to store to data into their specific storage.
-DONE
-
-Git repository updated.
-DONE
-
+Google Cloud Storage was choosen for my data, due to my familiarity with it. I programatically uploaded my bed bug data. The process consisted of uploading to a blob, creating a dataset, creating a data table with my blob data. Upon inspection, I took note that the data types were off so I had to create another python script to update the data types. 
 --------------------------------------------------------
 **Modeling**
 
-Data Model documented showing the fact table and the dimension table
-DONE
-
-Scripts that create the Data Warehouse 
-DONE
-
-Scripts from previous steps updated
-DONE
-
-Data Warehouse accessible to everyone in the team and can’t be accessed through a client (DataGrip, DbSchema, SqlDBM)
-DONE
-
-Git Repository Updated
-DONE
+Using DbSchema I was able to create a logical model consisting my different dimensions and fact table. 
 
 (HW 2)--------------------------------------------------------
 **Transformation**
-Scripts from previous steps updated
-
-
-Data Mapping Created & Data dictionary updated
-
-
-Data transformation project created on the cloud in case you are using Option One
-
-
-ETL fully created to push the data to DataWarehouse
-
-
-Git Repository Updated
+Transformation happened via Python, cleaning columns and adding a few columns I thought would be helpful in providing unqiue insights such as seasons along with the original business problem
 
 --------------------------------------------------------
 **Modeling**
-Data Model documented showing the fact table and the dimension table
-
-
-Scripts that create the Data Warehouse 
-
-
-Scripts from previous steps updated
-
-
-Data Warehouse Created in AWS with Redshift
-
-
-Data Inserted into the Data Warehouse
-
-
-Data Warehouse accessible to everyone in the team and can’t be accessed through a client (DBeaver, DataGrip)
-
-
-Git Repository Updated
-
-
 --------------------------------------------------------
 **Serving Data**
-Git Repository Updated
-
-
-A link using AWS Quick Sight that connects to the Data Warehouse and shows the data
-
-
-An API using python script that will generate data in a csv format which can be used by Data Analyst
-
-
-A PowerBI or a Tableau Link 
+My data was transformed and I exported as a CSV file to my data warehouse (GCS). I used Power BI, for the first time, to serve the data and get interesting insights. I even added an extra graph.
 
 
 
