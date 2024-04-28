@@ -2,6 +2,8 @@
 --------------------------------------------------------
 **Data Sourcing**
 
+![alt text](image-1.png)
+
 Link of all data sources:
 https://data.cityofnewyork.us/Housing-Development/Bedbug-Reporting/wz6d-d3jb/about_data 
 
@@ -16,11 +18,13 @@ I created a script to briefly analyze what kind of data I was dealing with, what
 --------------------------------------------------------
 **Storage**
 
+![alt text](image-2.png)
 Google Cloud Storage was choosen for my data, due to my familiarity with it. I programatically uploaded my bed bug data. The process consisted of uploading to a blob, creating a dataset, creating a data table with my blob data. Upon inspection, I took note that the data types were off so I had to create another python script to update the data types. 
 
 --------------------------------------------------------
 **Modeling**
 
+![alt text](<Data Model/DataModel_Star_Schema.png>)
 Using DbSchema I was able to create a logical model consisting my different dimensions and fact table. 
 
 --------------------------------------------------------
