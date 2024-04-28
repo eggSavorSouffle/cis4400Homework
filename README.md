@@ -19,6 +19,8 @@ I created a script to briefly analyze what kind of data I was dealing with, what
 **Storage**
 
 ![alt text](image-2.png)
+
+
 Google Cloud Storage was choosen for my data, due to my familiarity with it. I programatically uploaded my bed bug data. The process consisted of uploading to a blob, creating a dataset, creating a data table with my blob data. Upon inspection, I took note that the data types were off so I had to create another python script to update the data types. 
 
 --------------------------------------------------------
