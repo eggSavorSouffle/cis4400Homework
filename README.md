@@ -40,6 +40,8 @@ Transformation happened via Python, cleaning columns and adding a few columns I 
 **Serving Data**
 My data was transformed and I exported as a CSV file to my data warehouse (GCS). I used Power BI, for the first time, to serve the data and get interesting insights. I even added an extra graph.
 
+Power BI Link: https://drive.google.com/file/d/1kuCvi2EnatwF2XwZwKYMnlkE1_OL-UH1/view?usp=sharing
+
 ![Images4GH/image.png](Images4GH/image.png)
 
 
